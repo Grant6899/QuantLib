@@ -178,10 +178,8 @@ try{
 	Real			strike = 190;				// INPUT
 	Option::Type	type (Option::Call);			// INPUT
 
-	// Here, as an implementation exemple, we make the test with borth american and european exercise
 	boost::shared_ptr<Exercise> europeanExercise(new EuropeanExercise(maturity));
-	// The emericanExercise need also the settlement date, as his right to exerce the buy or call start at the settlement date!
-	boost::shared_ptr<Exercise> americanExercise(new AmericanExercise(settlementDate, maturity));
+
 	
 	std::cout << "**********************************" << std::endl;
 	std::cout << "Description of the option:		" << Option_name		<< std::endl;
@@ -205,8 +203,8 @@ try{
 	// For the choice of the finite difference model with the CrankNicolson scheme
 	//		this model need to precise the time and space step
 	//		More they are greater, more the calul will be precise.
-	Size GridPoints = 1000; // INPUT
-	Size TimeSteps	= 1000; // INPUT
+	Size GridPoints = 100; // INPUT
+	Size TimeSteps	= 100; // INPUT
     
     boost::shared_ptr<PricingEngine> fdEuropeanEngine(
         new FDEuropeanEngine<CrankNicolson>(bsProcess, TimeSteps, GridPoints));
