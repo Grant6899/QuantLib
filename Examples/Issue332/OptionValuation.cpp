@@ -234,8 +234,8 @@ try{
 	// For the american option we have make the choice of the finite difference model with the CrankNicolson scheme
 	//		this model need to precise the time and space step
 	//		More they are greater, more the calul will be precise.
-	Size americanGirdPoints = 600; // INPUT
-	Size americanTimeSteps	= 600; // INPUT
+	Size americanGirdPoints = 1000; // INPUT
+	Size americanTimeSteps	= 1000; // INPUT
 	boost::shared_ptr<PricingEngine> dividendAmericanEngine(
 		new FDDividendAmericanEngine<CrankNicolson>(bsProcess,americanTimeSteps, americanGirdPoints));
 

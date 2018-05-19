@@ -203,11 +203,11 @@ try{
 	// For the choice of the finite difference model with the CrankNicolson scheme
 	//		this model need to precise the time and space step
 	//		More they are greater, more the calul will be precise.
-	Size GridPoints = 100; // INPUT
+	Size GridPoints = 101; // INPUT
 	Size TimeSteps	= 100; // INPUT
     
     boost::shared_ptr<PricingEngine> fdEuropeanEngine(
-        new FDEuropeanEngine<CrankNicolson>(bsProcess, TimeSteps, GridPoints));
+        new FDEuropeanEngine<CrankNicolson>(bsProcess, TimeSteps, GridPoints, true));
 
 	boost::shared_ptr<PricingEngine> europeanEngine(
 		new AnalyticEuropeanEngine(bsProcess));
